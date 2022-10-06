@@ -3,14 +3,13 @@ Well, this took me way longer than it should have. I couldn't get the nested dic
 redoing everything and creating this crazy thing relying on a conditional right after the string split. I hope this is okay!!
 '''
 user_info = {}
+infile = open("data.txt", "r").readlines()
 # -------------------------------------------------
-def load_file(data, username_input, password_input):
+def load_file(username_input, password_input):
     '''
     Opens and reads data.txt then splits string into substrings. After each split, it'll check if the user input
     is equal to the username and password in that loop.
     '''
-    infile = open(data, "r").readlines()
-
     for line in infile:
         split_list = line.rstrip().split(",")
         if username_input == split_list[0] and password_input == split_list[1]:
@@ -22,7 +21,7 @@ def load_file(data, username_input, password_input):
         else:
             print("\nUsername and password not found, please try again\n")
             quit()
-
+    
 # -------------------------------------------------
 def user_information():
     '''
@@ -38,8 +37,9 @@ def login():
     '''
     username_input = input("Enter Username: ")
     password_input = input("Enter Password: ")  
-    load_file("data.txt", username_input, password_input)
-    user_information(username_input, password_input)
+    load_file(username_input, password_input)
+    user_information()
 
 # -------------------------------------------------
 login()
+infile.close()
