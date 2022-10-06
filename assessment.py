@@ -4,6 +4,7 @@ redoing everything and creating this crazy thing relying on a conditional right 
 '''
 user_info = {}
 infile = open("data.txt", "r").readlines()
+
 # -------------------------------------------------
 def load_file(username_input, password_input):
     '''
@@ -21,7 +22,7 @@ def load_file(username_input, password_input):
         else:
             print("\nUsername and password not found, please try again\n")
             quit()
-    
+
 # -------------------------------------------------
 def user_information():
     '''
@@ -42,4 +43,3 @@ def login():
 
 # -------------------------------------------------
 login()
-infile.close()
